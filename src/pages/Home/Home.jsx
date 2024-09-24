@@ -41,7 +41,7 @@ const Home = () => {
 
         <div className="container text-center my-5">
           <h1>Save the Date!</h1>
-          <h2>November 6-8, 2024</h2>
+          <h2>November 8-10, 2024</h2>
           <Button
             href="https://www.eventbrite.com"
             target="_blank"
