@@ -14,21 +14,5 @@ export const initScrollButton = () => {
         document.getElementById('scroll-button').classList.add('hidden');
       }
     });
-
-    window.addEventListener('scroll', function () {
-      const sectionAbout = document.querySelector('#about');
-      const scrollButtonContainer = document.getElementById('scroll-button');
-      const sectionTop = sectionAbout.getBoundingClientRect().top + window.scrollY;
-
-      // Obtener la posición de desplazamiento actual
-      const currentScroll = window.scrollY;
-
-      // Mostrar el botón si estamos en la sección "home" o si estamos por encima de la sección "about"
-      if (currentScroll === 0 || currentScroll < sectionTop) {
-        scrollButtonContainer.classList.remove('hidden');
-      } else {
-        scrollButtonContainer.classList.add('hidden');
-      }
-    });
   }
 };

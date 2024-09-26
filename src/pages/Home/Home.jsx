@@ -43,7 +43,7 @@ const Home = () => {
         </Container>
       </Navbar>
 
-      <div className='containerHome' id="#home">
+      <div className='containerHome' id="home">
 
         <div className="container text-center my-5">
           <h1>Save the Date!</h1>
