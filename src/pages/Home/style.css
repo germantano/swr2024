@@ -6,12 +6,39 @@ html, body {
     background-color: black !important; /* Black background */
     color: white;
 }
-  
+
+.navbar{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menues{
+    font-size: 1.5rem;
+}
+
+.titulo{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.comparti-ideas{
+    font-size: 1.5rem;
+}
+
+.border-white{
+    color: transparent;
+    -webkit-text-stroke: 1px white
+}
+
 .containerHome {
     background: black;
     min-height: 100vh; /* Covers full viewport height */
     width: 100%;
-    position: relative
+    position: relative;
+    margin-top: 120px;
 }
   
 .container {
@@ -19,6 +46,18 @@ html, body {
     padding: 0 15px; /* Optional: Add some horizontal padding */
     z-index: 1;
     position: relative;
+}
+
+.hidden{
+    display: none;
+}
+
+.about{
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+    display: flex; /* Esto puede ayudar a centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;
+    font-size: 2rem;
 }
 
 iframe {
@@ -48,4 +87,51 @@ iframe {
     0% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
     100% { transform: translateY(0); }
+}
+
+
+/* estilos del círculo bump */
+.circle-container {
+    position: fixed; /* Fijo al borde inferior de la pantalla */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* Asegura el centrado */
+    width: 200px;  /* Ancho del medio círculo */
+    height: 100px;  /* Altura (mitad de un círculo) */
+    background-color: #fff;  /* Fondo del círculo */
+    border-radius: 100px 100px 0 0;  /* Forma del medio círculo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para darle efecto de elevación */
+    bottom: 0;  /* Pegado al borde inferior */
+    text-align: center;  /* Centra el texto */
+    animation: bounce 2s infinite;  /* Efecto de rebote */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+.circle-text {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);  /* Centra el texto verticalmente */
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.circle-text:hover {
+    color: #ff6347; /* Color del texto al pasar el ratón */
+}
+
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Movimiento de salto */
+    }
+}
+
+.hidden {
+    display: none; /* Oculta el medio círculo */
 }

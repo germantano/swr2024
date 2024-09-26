@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { Container, Button, Navbar, Nav, Accordion } from 'react-bootstrap';
 import './style.css';
+import { initScrollButton } from './scroll-button';
 
 const Home = () => {
   useEffect(() => {
+    initScrollButton(); 
     const starContainer = document.querySelector('.containerHome');
     const starCount = 100; // Number of stars
 
@@ -24,12 +26,16 @@ const Home = () => {
     <>
       {/* <div className="dancing-stars"></div> */}
 
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar className='navbar' bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home"><img src={require('../../logo_SWR.svg').default} alt="" /></Navbar.Brand>
+          <Navbar.Brand href="#home"><img 
+              src={require('../../logo_SWR.svg').default} 
+              alt=""
+              style={{ width: '160px', height: 'auto' }}
+          /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="menues ms-auto">
               <Nav.Link href="#faq">FAQ</Nav.Link>
               <Nav.Link href="https://www.instagram.com/swrosario_/" target="_blank"><i className="bi bi-instagram"></i></Nav.Link>
             </Nav>
@@ -37,13 +43,13 @@ const Home = () => {
         </Container>
       </Navbar>
 
-      <div className='containerHome'>
+      <div className='containerHome' id="#home">
 
         <div className="container text-center my-5">
           <h1>Save the Date!</h1>
           <h2>November 8-10, 2024</h2>
           <Button
-            href="https://www.eventbrite.com"
+            href="https://www.eventbrite.com/e/techstars-startup-weekend-rosario-2024-tickets-1028871912587"
             target="_blank"
             variant="primary"
             size="lg"
@@ -51,7 +57,38 @@ const Home = () => {
             ¡Quiero participar!
           </Button>
         </div>
-      
+
+        <div className="container titulos my-5">
+          <h2 className="titulo text-white">¿ESTÁS LISTO PARA VIVIR</h2>
+          <h2 className="titulo border-white">54 HORAS DE ACCIÓN?</h2>
+          <br/><br/>
+          <p className='comparti-ideas'>¡Compartí tus ideas, formá un equipo, y lanzá una startup que transforme el futuro! ¿Estás listo?</p>
+        </div>
+
+        <div class="circle-container" id="scroll-button">
+          <a href="#about" class="circle-text">Conocé más</a>
+        </div>
+      </div>
+
+      <div id="about" className='container text-center about'>
+        <div className="row">
+        <div className="col-12"><h2>Edición 2024: FUTURO DEL TRABAJO</h2></div>
+        <br/><br/><br/>
+        <div className="col-12">
+          <p>
+            Este año, nos enfocamos en <b>el futuro del trabajo</b>
+            <br />
+            Exploraremos como la tecnología está transformando el empleo y las organizaciones,
+            y cómo podemos enfrentar sus retos.
+            <br />
+            Los participantes diseñarán soluciones que no solo aborden los desafíos actuales,
+            sino que den forma al futuro.
+          </p>
+        </div>  
+        </div>
+        
+      </div>
+
       <div id="faq" className="container my-5">
         <h2>FAQs</h2>
         <Accordion>
@@ -90,7 +127,6 @@ const Home = () => {
           </Accordion.Item>
         </Accordion>
       </div>
-    </div>
     </>
   )
 }
