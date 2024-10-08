@@ -21,6 +21,16 @@ const Home = () => {
       starContainer.appendChild(star);
     }
   }, []);
+
+  const handleSmoothScroll = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <>
@@ -28,7 +38,7 @@ const Home = () => {
 
       <Navbar className='navbar' bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home"><img 
+          <Navbar.Brand href="#home" onClick={handleSmoothScroll}><img 
               src={require('../../logo_SWR.svg').default} 
               alt=""
               style={{ width: '160px', height: 'auto' }}
@@ -36,7 +46,7 @@ const Home = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="menues ms-auto">
-              <Nav.Link href="#faq">FAQ</Nav.Link>
+              <Nav.Link href="#faq" onClick={handleSmoothScroll }>FAQ</Nav.Link>
               <Nav.Link href="https://www.instagram.com/swrosario_/" target="_blank"><i className="bi bi-instagram"></i></Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -93,21 +103,23 @@ const Home = () => {
         <h2>FAQs</h2>
         <Accordion>
           <Accordion.Item eventKey="0">
-            <Accordion.Header>What is Startup Weekend?</Accordion.Header>
+            <Accordion.Header>¿Qué es Startup Weekend?</Accordion.Header>
             <Accordion.Body>
-              Startup Weekend is a global grassroots movement of active and empowered entrepreneurs who are learning the basics of founding startups and launching successful ventures.
+            Startup Weekend es un movimiento global de base de emprendedores activos y no emprendedores que están 
+            aprendiendo los conceptos básicos de la fundación de nuevas empresas y el lanzamiento de emprendimientos exitosos.
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1">
-            <Accordion.Header>Who can participate?</Accordion.Header>
+            <Accordion.Header>¿Quién puede participar?</Accordion.Header>
             <Accordion.Body>
-              Anyone with an idea, a skill, or a passion for entrepreneurship! We welcome developers, designers, and business enthusiasts.
+              Cualquier persona con una idea, habilidad o pasión por los emprendimientos! Si no tenés una idea vení a formar un grupo
+              y participar
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">
-            <Accordion.Header>What do I need to bring?</Accordion.Header>
+            <Accordion.Header>¿Qué necesito llevar?</Accordion.Header>
             <Accordion.Body>
-              Bring your laptop, business cards, and an open mind. We'll provide the rest!
+              Necesitas traer una laptop, entusiasmo y ganas de participar. ¡Nos encargamos del resto!
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="3" className='text-center'>
